@@ -73,7 +73,34 @@ void LinkedList::insert(int index, int value)
 
 void LinkedList::remove(int index)
 {
+    Node *pre = head_;
+    Node *cur = head_;
 
+    for(int i = 0; i<index; i++)
+    {
+        if(cur != head_)
+        {
+            pre = pre->next_;
+        }
+        cur = cur ->next_;
+    }
+    Node *temp = cur;
+
+    pre-> next_ = temp -> next_;
+
+    delete temp;
 }
 
 
+LinkedList::~LinkedList()
+{
+    Node *current = head_;
+
+    for(int i = 0; i<size_; i++)
+    {
+        Node* next = current->next_;
+        delete current;
+        current = next;
+    }
+    head_ = NULL;
+}
