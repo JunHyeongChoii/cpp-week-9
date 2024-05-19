@@ -4,7 +4,7 @@
 
 void Queue::push(int data)
 {
-    LinkedList::insert(data,LinkedList::size_);
+    LinkedList::insert(LinkedList::size_,data);
 }
 
 int Queue::peek()
